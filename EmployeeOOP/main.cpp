@@ -1,13 +1,9 @@
-﻿#include "pch.h"
-#include "Employee.hpp"
-#include "Manager.hpp"
-#include "Engineer.hpp"
-#include "Researcher.hpp"
-
+﻿
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include <memory>
+#include "Employee.cpp"
 #include "Manager.cpp"
 #include "Engineer.cpp"
 #include "Researcher.cpp"

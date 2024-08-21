@@ -1,5 +1,4 @@
 #include "Employee.cpp"
-#include "Researcher.hpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -26,4 +25,8 @@ public:
         cout << "PhD School: " << phdSchool << endl
             << "PhD Topic: " << phdTopic << endl;
     }
+
+private:
+    string phdShool;
+    string phdTopic;
 };

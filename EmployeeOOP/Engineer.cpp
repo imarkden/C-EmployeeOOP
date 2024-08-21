@@ -1,6 +1,4 @@
-#include "pch.h"
 #include "Employee.cpp"
-#include "Engineer.hpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -29,4 +27,9 @@ public:
             << "Years of Experience: " << yearsOfExperience << endl
             << "Engineer Type: " << engineerType << endl;
     }
+
+private:
+    bool knowsCpp;
+    float yearsOfExperience;
+    string engineerType;
 };

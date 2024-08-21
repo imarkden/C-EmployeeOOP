@@ -1,21 +1,33 @@
-#include "Employee.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
 
-int Employee::nextId = 1;
+using namespace std;
 
-Employee::Employee(const string& firstname, const string& lastname, double sal)
-    : firstName(firstname), lastName(lastname), salary(sal), id(nextId++) {}
+class Employee {
+public:
+    Employee(const string& firstname, const string& lastname, double sal)
+        : firstName(firstname), lastName(lastname), salary(sal), id(nextId++) {}
 
-void Employee::save(ofstream& fout) const {
-    fout << id << " " << firstName << " " << lastName << " " << salary << "\n";
-}
+    virtual ~Employee() = default;
 
-void Employee::display() const {
-    cout << "ID: " << id << "\n"
-        << "First Name: " << firstName << "\n"
-        << "Last Name: " << lastName << "\n"
-        << "Salary: " << salary << "\n";
-}
+    virtual void save(ofstream& fout) const {
+        fout << "Employee: " << firstName << " " << lastName << ", Salary: " << salary << ", ID: " << id << endl;
+    }
 
-int Employee::getId() const {
-    return id;
-}
+    virtual void display() const {
+        cout << "Employee: " << firstName << " " << lastName << ", Salary: " << salary << ", ID: " << id << endl;
+    }
+
+    string getLastName() const { return lastName; }
+    int getId() const { return id; }
+
+protected:
+    string firstName;
+    string lastName;
+    double salary;
+    int id;
+
+private:
+    static int nextId;
+};

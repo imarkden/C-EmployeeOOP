@@ -1,29 +1,28 @@
 #include "Employee.cpp"
-#include "Manager.hpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
 
 class Manager : public Employee {
-    int meetingPerWeek;
-    int vacationPerYear;
-
 public:
-    //constructor
     Manager(const string& firstname, const string& lastname, double sal, int meetingperweek, int vacationperyear)
         : Employee(firstname, lastname, sal), meetingPerWeek(meetingperweek), vacationPerYear(vacationperyear) {}
 
-    //save manager data
     void save(ofstream& fout) const override {
-        fout << "Manager ";
+        fout << endl << "Position: Manager " << endl;
         Employee::save(fout);
-        fout << " " << meetingPerWeek << " " << vacationPerYear << endl;
+        fout << "Meeting Per Week: " << meetingPerWeek << endl
+             << "Vacation Per Year: " << vacationPerYear << endl << endl;
     }
 
-    //display manager data
     void display() const override {
+        cout << "Position: Manager " << endl;
         Employee::display();
         cout << "Meetings per Week: " << meetingPerWeek << endl
-            << "Vacation Days: " << vacationPerYear << endl;
+             << "Vacation Days: " << vacationPerYear << endl;
     }
+
+private:
+    int meetingPerWeek;
+    int vacationPerYear;
 };
